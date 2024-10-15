@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
-
-import { getFlagEmoji } from '../../utils'
 import { getCurrency, getTables, queryKeys } from '../../api/queries'
+import { CurrencyItem } from './CurrencyItem'
+import './styles.css'
 
 export const Currencies: React.FC = () => {
   const { data: tableData } = useQuery({
@@ -23,19 +23,25 @@ export const Currencies: React.FC = () => {
   return (
     <>
       <h1>Kursy walut</h1>
-      <div className="currencies-column">
-        {currenciesData?.map((item, index) => (
-          <div
-            key={index}
-            className="currencies-row"
-          >
-            <p>{getFlagEmoji(item.code)}</p>
-            <p key={`code${index}`}>{item.code}</p>
-            <p key={`mid${index}`}>{item.mid}</p>
-            <p>{`(${item.currency})`}</p>
-          </div>
-        ))}
-      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Nazwa waluty</th>
+            <th scope="col">Kurs</th>
+          </tr>
+        </thead>
+        <tbody>
+          {currenciesData?.map((item, index) => (
+            <CurrencyItem
+              key={index}
+              code={item.code}
+              mid={item.mid}
+              currency={item?.currency}
+            />
+          ))}
+        </tbody>
+      </table>
     </>
   )
 }

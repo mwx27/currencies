@@ -14,7 +14,7 @@ export const App: React.FC = () => {
           element={<Currencies />}
         />
         <Route
-          path="/dupa"
+          path="/currency/:code"
           element={<CurrencyDetails />}
         />
       </Routes>
