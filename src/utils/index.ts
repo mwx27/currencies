@@ -1,0 +1,1 @@
+export { getFlagEmoji } from './flags'
