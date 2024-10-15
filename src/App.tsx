@@ -1,33 +1,41 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import { useQuery } from '@tanstack/react-query'
+import { getCurrency, getTables, queryKeys } from './api/queries'
 
-function App() {
-  const [count, setCount] = useState(0)
+function App() {  
+
+  const { data: tableData, refetch } = useQuery({
+    queryKey: [queryKeys.Tables],
+    queryFn: getTables,
+    select(data) {
+      return data[0]
+    },
+  })
+  const { data: currencyData } = useQuery({
+    queryKey: [queryKeys.Currency],
+    queryFn: getCurrency
+  })
+
+  const currenciesData = tableData?.rates
+  console.log('table',tableData)
+  console.log('chf',currencyData)
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
+      <h1>Kursy walut</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+        <button onClick={() => refetch()}>
+          refetch
         </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <div className='currencies-column'>
+        {currenciesData?.map((item, index) => (
+          <div key={index} className='currencies-row'>
+            <p key={`code${index}`}>{item.code}</p>
+            <p key={`mid${index}`}>{item.mid}</p>
+          </div>
+          ))}
+      </div>
     </>
   )
 }
