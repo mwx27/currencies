@@ -9,5 +9,5 @@ export enum queryKeys {
 export const getTables = () =>
   getRequest<CurrencyTable>('exchangerates/tables/a/today/')
 
-export const getCurrency = () =>
-  getRequest<CurrencyRate>('exchangerates/rates/a/chf/')
+export const getCurrency = (currencyCode: string) =>
+  getRequest<CurrencyRate>(`exchangerates/rates/a/${currencyCode}/last/30`)

@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
-import { getCurrency, getTables, queryKeys } from '../../api/queries'
+import { getTables, queryKeys } from '../../api/queries'
 import { CurrencyItem } from './CurrencyItem'
 import './styles.css'
 
@@ -11,14 +11,8 @@ export const Currencies: React.FC = () => {
       return data[0]
     }
   })
-  const { data: currencyData } = useQuery({
-    queryKey: [queryKeys.Currency],
-    queryFn: getCurrency
-  })
 
   const currenciesData = tableData?.rates
-  console.log('table', tableData)
-  console.log('chf', currencyData)
 
   return (
     <>
