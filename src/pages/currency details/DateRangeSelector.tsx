@@ -4,7 +4,7 @@ import './styles/DateRangeSelector.css'
 import { LocalizationProvider } from '@mui/x-date-pickers'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import dayjs from 'dayjs'
-import { DEFAULT_VALUES } from '../../constants'
+import { DEFAULT_RANGE } from '../../constants'
 import { DatesRange } from '../../types'
 
 type Props = {
@@ -12,8 +12,8 @@ type Props = {
 }
 
 export const DateRangeSelector: React.FC<Props> = ({ onChange }) => {
-  const [startDate, setStartDate] = useState('')
-  const [endDate, setEndDate] = useState('')
+  const [startDate, setStartDate] = useState(DEFAULT_RANGE.startDate)
+  const [endDate, setEndDate] = useState(DEFAULT_RANGE.endDate)
 
   const datesRange: DatesRange = {
     startDate,
@@ -37,12 +37,12 @@ export const DateRangeSelector: React.FC<Props> = ({ onChange }) => {
         <div className="date-range-container">
           <DateSelector
             onChange={value => onStartDatePick(value)}
-            defaultDate={dayjs(DEFAULT_VALUES.startDate)}
+            defaultDate={dayjs(DEFAULT_RANGE.startDate)}
             isStart
           />
           <DateSelector
             onChange={value => onEndDatePick(value)}
-            defaultDate={dayjs(DEFAULT_VALUES.endDate)}
+            defaultDate={dayjs(DEFAULT_RANGE.endDate)}
           />
         </div>
       </div>
