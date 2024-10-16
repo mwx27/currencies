@@ -3,7 +3,8 @@ import { CurrencyRates, CurrencyTable } from './responses'
 
 export enum queryKeys {
   Tables = 'Tables',
-  Currency = 'Currency'
+  CurrencyRatesInRange = 'CurrencyRatesInRange',
+  CurrencyRateNow = 'CurrentRateNow'
 }
 
 export const getTables = () =>
@@ -17,3 +18,6 @@ export const getCurrencyInRange = (
   getRequest<CurrencyRates>(
     `exchangerates/rates/a/${currencyCode}/${startDate}/${endDate}`
   )
+
+export const getCurrency = (currencyCode: string) =>
+  getRequest<CurrencyRates>(`exchangerates/rates/a/${currencyCode}`)

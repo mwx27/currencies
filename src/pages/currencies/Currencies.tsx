@@ -12,7 +12,7 @@ export const Currencies: React.FC = () => {
     }
   })
 
-  const currenciesData = tableData?.rates
+  const currenciesData = tableData?.rates.filter(item => item.code !== 'XDR')
 
   return (
     <>

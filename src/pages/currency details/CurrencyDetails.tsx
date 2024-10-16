@@ -12,7 +12,7 @@ import {
   Tooltip
 } from 'chart.js'
 import { useQuery } from '@tanstack/react-query'
-import { getCurrencyInRange, queryKeys } from '../../api/queries'
+import { getCurrency, getCurrencyInRange, queryKeys } from '../../api/queries'
 import { useState } from 'react'
 import { DateRangeSelector } from './DateRangeSelector'
 import './styles/CurrencyDetails.css'
@@ -32,7 +32,7 @@ export const CurrencyDetails: React.FC = () => {
 
   const { data: currencyData } = useQuery({
     queryKey: [
-      queryKeys.Currency,
+      queryKeys.CurrencyRatesInRange,
       code,
       datesRange.startDate,
       datesRange.endDate
@@ -52,6 +52,22 @@ export const CurrencyDetails: React.FC = () => {
       return {
         dates,
         values
+      }
+    }
+  })
+
+  const { data: currentRate } = useQuery({
+    queryKey: [queryKeys.CurrencyRateNow, code],
+    enabled: !!code,
+    queryFn: () => getCurrency(currencyCode),
+    select(data) {
+      const rates = data?.rates
+      const rate = rates[0]
+      const currencyName = data?.currency
+
+      return {
+        rate,
+        currencyName
       }
     }
   })
@@ -84,11 +100,12 @@ export const CurrencyDetails: React.FC = () => {
       <h1>
         {`Currency Details of ${currencyCode}`} {getFlagEmoji(currencyCode)}
       </h1>
+      <h2>{currentRate?.currencyName}</h2>
       <Line data={lineChartData} />
       <DateRangeSelector onChange={value => setDatesRange(value)} />
       <Calculator
         targetCurrency={currencyCode}
-        rate={0}
+        rate={currentRate?.rate.mid || 0}
       />
     </div>
   )
