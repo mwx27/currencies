@@ -1,5 +1,6 @@
-.date-range-selector {
+.date-range-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   gap: 16px;
+  padding: 16px;
 }

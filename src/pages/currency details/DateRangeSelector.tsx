@@ -34,7 +34,7 @@ export const DateRangeSelector: React.FC<Props> = ({ onChange }) => {
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <div>
         <h2>Select dates range</h2>
-        <div className="date-range-selector">
+        <div className="date-range-container">
           <DateSelector
             onChange={value => onStartDatePick(value)}
             defaultDate={dayjs(DEFAULT_VALUES.startDate)}

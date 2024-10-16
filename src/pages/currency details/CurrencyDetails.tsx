@@ -18,9 +18,11 @@ import { DateRangeSelector } from './DateRangeSelector'
 import './styles/CurrencyDetails.css'
 import { DEFAULT_VALUES } from '../../constants'
 import { DatesRange } from '../../types'
+import { Calculator } from './Calculator'
 
 export const CurrencyDetails: React.FC = () => {
   const { code } = useParams<{ code: string }>()
+  const currencyCode = code as string
 
   const [datesRange, setDatesRange] = useState<DatesRange>({
     endDate: DEFAULT_VALUES.endDate,
@@ -38,7 +40,7 @@ export const CurrencyDetails: React.FC = () => {
     enabled: !!code,
     queryFn: () =>
       getCurrencyInRange(
-        code as string,
+        currencyCode,
         datesRange.startDate,
         datesRange.endDate
       ),
@@ -78,12 +80,16 @@ export const CurrencyDetails: React.FC = () => {
   }
 
   return (
-    <div className="container">
+    <div>
       <h1>
-        {`Currency Details of ${code}`} {code && getFlagEmoji(code)}
+        {`Currency Details of ${currencyCode}`} {getFlagEmoji(currencyCode)}
       </h1>
       <Line data={lineChartData} />
       <DateRangeSelector onChange={value => setDatesRange(value)} />
+      <Calculator
+        targetCurrency={currencyCode}
+        rate={0}
+      />
     </div>
   )
 }

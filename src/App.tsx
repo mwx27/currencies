@@ -8,7 +8,7 @@ export const App: React.FC = () => {
   const queryClient = new QueryClient()
 
   const transitionValue = 'all 0.2s ease-in-out'
-  
+
   const materialTheme = createTheme({
     palette: {
       text: {
@@ -20,6 +20,7 @@ export const App: React.FC = () => {
       MuiInputAdornment: {
         styleOverrides: {
           root: {
+            color: 'gray',
             '& .MuiSvgIcon-root': {
               color: 'gray',
               transition: transitionValue
@@ -42,6 +43,28 @@ export const App: React.FC = () => {
             },
             '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
               borderColor: 'green'
+            },
+            '&.Mui-disabled .MuiOutlinedInput-notchedOutline': {
+              borderColor: 'gray'
+            }
+          }
+        }
+      },
+      MuiInputLabel: {
+        styleOverrides: {
+          root: {
+            color: 'white',
+            '&.Mui-disabled': {
+              color: 'white'
+            }
+          }
+        }
+      },
+      MuiInputBase: {
+        styleOverrides: {
+          input: {
+            '&.Mui-disabled': {
+              '-webkit-text-fill-color': 'white'
             }
           }
         }
