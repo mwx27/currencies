@@ -1,5 +1,5 @@
 import { getRequest } from './config'
-import { CurrencyRate, CurrencyTable } from './responses'
+import { CurrencyRates, CurrencyTable } from './responses'
 
 export enum queryKeys {
   Tables = 'Tables',
@@ -7,7 +7,13 @@ export enum queryKeys {
 }
 
 export const getTables = () =>
-  getRequest<CurrencyTable>('exchangerates/tables/a/today/')
+  getRequest<CurrencyTable>('exchangerates/tables/a/')
 
-export const getCurrency = (currencyCode: string) =>
-  getRequest<CurrencyRate>(`exchangerates/rates/a/${currencyCode}/last/30`)
+export const getCurrencyInRange = (
+  currencyCode: string,
+  startDate: string,
+  endDate: string
+) =>
+  getRequest<CurrencyRates>(
+    `exchangerates/rates/a/${currencyCode}/${startDate}/${endDate}`
+  )

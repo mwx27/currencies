@@ -15,7 +15,7 @@ type Rate = {
   mid: number
 }
 
-export type CurrencyRate = {
+export type CurrencyRates = {
   table: string
   currency: string
   code: string

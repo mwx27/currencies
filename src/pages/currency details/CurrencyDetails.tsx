@@ -12,22 +12,36 @@ import {
   Tooltip
 } from 'chart.js'
 import { useQuery } from '@tanstack/react-query'
-import { getCurrency, queryKeys } from '../../api/queries'
+import { getCurrencyInRange, queryKeys } from '../../api/queries'
+import { useState } from 'react'
+import { DateRangeSelector } from './DateRangeSelector'
+import './styles/CurrencyDetails.css'
+import { DEFAULT_VALUES } from '../../constants'
+import { DatesRange } from '../../types'
 
 export const CurrencyDetails: React.FC = () => {
   const { code } = useParams<{ code: string }>()
 
-  if (!code) {
-    return (
-      <div>
-        <h1>{'Invalid currency code :('}</h1>
-      </div>
-    )
-  }
+  const [datesRange, setDatesRange] = useState<DatesRange>({
+    endDate: DEFAULT_VALUES.endDate,
+    startDate: DEFAULT_VALUES.startDate
+  })
+  console.log('wybrana data', datesRange)
 
   const { data: currencyData } = useQuery({
-    queryKey: [queryKeys.Currency, code],
-    queryFn: () => getCurrency(code),
+    queryKey: [
+      queryKeys.Currency,
+      code,
+      datesRange.startDate,
+      datesRange.endDate
+    ],
+    enabled: !!code,
+    queryFn: () =>
+      getCurrencyInRange(
+        code as string,
+        datesRange.startDate,
+        datesRange.endDate
+      ),
     select(data) {
       const rates = data?.rates
       const dates = rates.map(rate => rate.effectiveDate)
@@ -64,11 +78,12 @@ export const CurrencyDetails: React.FC = () => {
   }
 
   return (
-    <div>
+    <div className="container">
       <h1>
-        {`CurrencyDetails of ${code}`} {code && getFlagEmoji(code)}
+        {`Currency Details of ${code}`} {code && getFlagEmoji(code)}
       </h1>
       <Line data={lineChartData} />
+      <DateRangeSelector onChange={value => setDatesRange(value)} />
     </div>
   )
 }
