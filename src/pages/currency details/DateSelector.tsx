@@ -21,50 +21,28 @@ export const DateSelector: React.FC<Props> = ({
       onChange={date => onChange(date?.format(TIME_FORMAT_QUERY) || '')}
       label={isStart ? 'Start Date' : 'End Date'}
       format={TIME_FORMAT_UI}
+      disableFuture
       slotProps={{
         day: {
           sx: {
             color: 'gray',
             '&.Mui-selected': {
               backgroundColor: 'gray',
-              color: 'black'
+              color: 'black',
+              border: 'none'
             },
             '&.MuiPickersDay-today': {
               backgroundColor: 'green',
-              color: 'black'
+              color: 'black',
+              border: 'none'
             }
-            // '&.Mui-disabled': {
-            //   color: '#cccccc'
-            // }
-          }
-        },
-        yearButton: {
-          sx: {
-            color: 'green',
-            borderRadius: '5px solid yellow',
-            backgroundColor: '#000000'
           }
         },
         desktopPaper: {
           sx: {
-            color: 'green',
-            borderRadius: '5px solid yellow',
-            backgroundColor: '#242424'
+            border: '1px solid gray',
+            backgroundColor: '#242424e0'
           }
-        },
-        textField: {
-          sx: {
-            color: 'yellow',
-            border: '1px solid gray'
-            // backgroundColor: 'gray'
-          }
-        },
-        layout: {
-          // sx: {
-          //   color: 'yellow',
-          //   border: '1px solid blue',
-          //   backgroundColor: 'red'
-          // }
         }
       }}
     />
