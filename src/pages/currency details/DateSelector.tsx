@@ -4,17 +4,17 @@ import { TIME_FORMAT_QUERY, TIME_FORMAT_UI } from '../../constants'
 
 type DayjsType = dayjs.Dayjs
 
-type Props = {
+type DateSelectorProps = {
   onChange: (value: string) => void
-  defaultDate?: DayjsType
+  defaultDate: DayjsType
+  minDate: DayjsType
+  maxDate: DayjsType
   isStart?: boolean
 }
 
-export const DateSelector: React.FC<Props> = ({
-  onChange,
-  defaultDate,
-  isStart
-}) => {
+export const DateSelector: React.FC<DateSelectorProps> = props => {
+  const { onChange, defaultDate, minDate, maxDate, isStart = false } = props
+
   return (
     <DatePicker
       defaultValue={defaultDate}
@@ -22,6 +22,8 @@ export const DateSelector: React.FC<Props> = ({
       label={isStart ? 'Start Date' : 'End Date'}
       format={TIME_FORMAT_UI}
       disableFuture
+      minDate={minDate}
+      maxDate={maxDate}
       slotProps={{
         day: {
           sx: {

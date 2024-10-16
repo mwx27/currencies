@@ -1,11 +1,11 @@
 import './styles/SwitchButton.css'
 import switchIcon from './assets/switch.svg'
 
-type Props = {
+type SwitchButtonProps = {
   onSwitch: VoidFunction
 }
 
-export const SwitchButton: React.FC<Props> = ({ onSwitch }) => (
+export const SwitchButton: React.FC<SwitchButtonProps> = ({ onSwitch }) => (
   <button
     className="switch-button"
     onClick={onSwitch}

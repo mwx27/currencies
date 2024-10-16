@@ -7,11 +7,11 @@ import dayjs from 'dayjs'
 import { DEFAULT_RANGE } from '../../constants'
 import { DatesRange } from '../../types'
 
-type Props = {
+type SelectorProps = {
   onChange: (value: DatesRange) => void
 }
 
-export const DateRangeSelector: React.FC<Props> = ({ onChange }) => {
+export const DateRangeSelector: React.FC<SelectorProps> = ({ onChange }) => {
   const [startDate, setStartDate] = useState(DEFAULT_RANGE.startDate)
   const [endDate, setEndDate] = useState(DEFAULT_RANGE.endDate)
 
@@ -38,11 +38,15 @@ export const DateRangeSelector: React.FC<Props> = ({ onChange }) => {
           <DateSelector
             onChange={value => onStartDatePick(value)}
             defaultDate={dayjs(DEFAULT_RANGE.startDate)}
+            minDate={dayjs(endDate).subtract(1, 'year')} // this is due to restriction of NBP's API
+            maxDate={dayjs(endDate).subtract(1, 'day')}
             isStart
           />
           <DateSelector
             onChange={value => onEndDatePick(value)}
             defaultDate={dayjs(DEFAULT_RANGE.endDate)}
+            minDate={dayjs(startDate).add(1, 'day')}
+            maxDate={dayjs(startDate).add(1, 'year')} // this is due to restriction of NBP's API
           />
         </div>
       </div>

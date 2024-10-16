@@ -21,7 +21,7 @@ export const CurrencyDetails: React.FC = () => {
       QueryKeys.CurrencyRatesInRange,
       code,
       datesRange.startDate,
-      datesRange.endDate,
+      datesRange.endDate
     ],
     enabled: !!code,
     queryFn: () => getCurrencyInRange(currencyCode, datesRange),
