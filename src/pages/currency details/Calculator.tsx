@@ -1,6 +1,7 @@
 import { InputAdornment, TextField } from '@mui/material'
 import './styles/general.css'
 import { useState } from 'react'
+import { SwitchButton } from './SwitchButton'
 
 type Props = {
   targetCurrency: string
@@ -8,8 +9,14 @@ type Props = {
 }
 
 export const Calculator: React.FC<Props> = ({ targetCurrency, rate }) => {
+  const [currenciesSwitched, setCurrenciesSwitched] = useState<boolean>(false)
+  const onSwitch = () => setCurrenciesSwitched(!currenciesSwitched)
+  const inputCurrency = currenciesSwitched ? 'PLN' : targetCurrency
+  const outputCurrency = currenciesSwitched ? targetCurrency : 'PLN'
+  const effectiveRate = currenciesSwitched ? +(1 / rate).toFixed(4) : rate
+
   const [inputAmount, setInputAmount] = useState<string>('1')
-  const outputAmount = (parseFloat(inputAmount || '0') * rate).toFixed(2)
+  const outputAmount = (Number(inputAmount) * effectiveRate).toFixed(2)
 
   const isInputValid = (input: string) => /^\d*[.,]?\d{0,2}$/.test(input)
 
@@ -20,12 +27,12 @@ export const Calculator: React.FC<Props> = ({ targetCurrency, rate }) => {
 
   return (
     <div className="feature-container">
-      <h2>Convert to PLN</h2>
-      <h3>{`1 ${targetCurrency} = ${rate} PLN`}</h3>
+      <h2>{`Convert ${inputCurrency} to ${outputCurrency}`}</h2>
+      <h3>{`1 ${inputCurrency} = ${effectiveRate} ${outputCurrency}`}</h3>
+
       <div className="inputs-container">
         <TextField
-          id="input"
-          label={`from ${targetCurrency}`}
+          label={`from ${inputCurrency}`}
           variant="outlined"
           value={inputAmount}
           onChange={onChange}
@@ -42,9 +49,11 @@ export const Calculator: React.FC<Props> = ({ targetCurrency, rate }) => {
             }
           }}
         />
+
+        <SwitchButton onSwitch={onSwitch} />
+
         <TextField
-          id="output"
-          label={`to PLN`}
+          label={`to ${outputCurrency}`}
           variant="outlined"
           disabled
           value={outputAmount}

@@ -1,0 +1,25 @@
+.switch-button {
+  background: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  border: 1px solid gray;
+  width: 30px;
+  height: 30px;
+}
+
+.switch-button img {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s ease;
+}
+
+.switch-button:hover {
+  border: 1px solid white;
+}
+
+.switch-button:hover img {
+  transform: rotate(180deg);
+}
