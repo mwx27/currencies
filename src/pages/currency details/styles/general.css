@@ -16,3 +16,10 @@
     margin: 0px;
   }
 }
+
+@media (max-width: 600px) {
+  .inputs-container {
+    flex-direction: column;
+    gap: 8px;
+  }
+}

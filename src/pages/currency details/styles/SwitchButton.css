@@ -6,8 +6,10 @@
   justify-content: center;
   transition: all 0.3s ease;
   border: 1px solid gray;
+  border-radius: 8px;
   width: 30px;
   height: 30px;
+  padding: 1.2em;
 }
 
 .switch-button img {
@@ -22,4 +24,13 @@
 
 .switch-button:hover img {
   transform: rotate(180deg);
+}
+
+@media(max-width: 600px) {
+  .switch-button img {
+    transform: rotate(90deg);
+  }
+  .switch-button:hover img {
+    transform: rotate(270deg);
+  }
 }
