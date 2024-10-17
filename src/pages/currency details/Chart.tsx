@@ -14,6 +14,7 @@ type ChartProps = {
   currencyData?: {
     dates: string[]
     values: number[]
+    code: string
   }
 }
 
@@ -32,7 +33,7 @@ export const Chart: React.FC<ChartProps> = ({ currencyData }) => {
     labels: currencyData?.dates,
     datasets: [
       {
-        label: 'Currency Value',
+        label: `Średni kurs ${currencyData?.code} do PLN`,
         data: currencyData?.values,
         fill: false,
         backgroundColor: '#49e61051',
@@ -41,5 +42,22 @@ export const Chart: React.FC<ChartProps> = ({ currencyData }) => {
     ]
   }
 
-  return <Line data={lineChartData} />
+  const options = {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'bottom' as const
+      },
+      title: {
+        display: true
+      }
+    }
+  }
+
+  return (
+    <Line
+      options={options}
+      data={lineChartData}
+    />
+  )
 }

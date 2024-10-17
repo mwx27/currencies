@@ -5,3 +5,7 @@
     justify-content: center;
     gap: 16px;
 }
+
+h1 {
+    text-transform: capitalize;
+}

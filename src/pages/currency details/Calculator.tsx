@@ -27,7 +27,7 @@ export const Calculator: React.FC<Props> = ({ targetCurrency, rate }) => {
 
   return (
     <div className="feature-container">
-      <h2>{`Convert ${inputCurrency} to ${outputCurrency}`}</h2>
+      <h2>{`Przelicz ${inputCurrency} na ${outputCurrency}`}</h2>
       <h3>{`1 ${inputCurrency} = ${effectiveRate} ${outputCurrency}`}</h3>
 
       <div className="inputs-container">

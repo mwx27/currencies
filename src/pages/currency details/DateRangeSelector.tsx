@@ -33,7 +33,7 @@ export const DateRangeSelector: React.FC<SelectorProps> = ({ onChange }) => {
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <div>
-        <h2>Select dates range</h2>
+        <h2>Wybór zakresu dat</h2>
         <div className="date-range-container">
           <DateSelector
             onChange={value => onStartDatePick(value)}

@@ -32,7 +32,8 @@ export const CurrencyDetails: React.FC = () => {
 
       return {
         dates,
-        values
+        values,
+        code: currencyCode
       }
     }
   })
@@ -55,10 +56,10 @@ export const CurrencyDetails: React.FC = () => {
 
   return (
     <div>
-      <h1>
-        {`Currency Details of ${currencyCode}`} {getFlagEmoji(currencyCode)}
-      </h1>
-      <h2>{currentRate?.currencyName}</h2>
+      <h1>{currentRate?.currencyName}</h1>
+      <h2>
+        {currencyCode} {getFlagEmoji(currencyCode)}
+      </h2>
       <Chart currencyData={currencyData} />
       <DateRangeSelector onChange={value => setDatesRange(value)} />
       <Calculator
