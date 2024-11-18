@@ -1,5 +1,5 @@
-import './styles/SwitchButton.css'
 import switchIcon from './assets/switch.svg'
+import './styles/SwitchButton.css'
 
 type SwitchButtonProps = {
   onSwitch: VoidFunction

@@ -1,14 +1,14 @@
+import { useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { getFlagEmoji } from '../../utils'
 import { useQuery } from '@tanstack/react-query'
 import { getCurrency, getCurrencyInRange, QueryKeys } from '../../api/queries'
-import { useState } from 'react'
-import { DateRangeSelector } from './DateRangeSelector'
-import './styles/CurrencyDetails.css'
 import { DEFAULT_RANGE } from '../../constants'
 import { DatesRange } from '../../types'
+import { getFlagEmoji } from '../../utils'
 import { Calculator } from './Calculator'
 import { Chart } from './Chart'
+import { DateRangeSelector } from './DateRangeSelector'
+import './styles/CurrencyDetails.css'
 
 export const CurrencyDetails: React.FC = () => {
   const { code } = useParams<{ code: string }>()

@@ -1,8 +1,8 @@
+import { Route, Routes } from 'react-router-dom'
+import { createTheme, ThemeProvider } from '@mui/material/styles'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import './App.css'
 import { Currencies, CurrencyDetails } from './pages'
-import { Route, Routes } from 'react-router-dom'
-import { createTheme, ThemeProvider } from '@mui/material/styles'
 
 export const App: React.FC = () => {
   const queryClient = new QueryClient()

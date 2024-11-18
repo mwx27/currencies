@@ -1,11 +1,11 @@
 import { useState } from 'react'
-import { DateSelector } from './DateSelector'
-import './styles/DateRangeSelector.css'
 import { LocalizationProvider } from '@mui/x-date-pickers'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import dayjs from 'dayjs'
 import { DEFAULT_RANGE } from '../../constants'
 import { DatesRange } from '../../types'
+import { DateSelector } from './DateSelector'
+import './styles/DateRangeSelector.css'
 
 type SelectorProps = {
   onChange: (value: DatesRange) => void

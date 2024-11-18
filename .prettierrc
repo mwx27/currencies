@@ -8,5 +8,13 @@
   "bracketSpacing": true,
   "arrowParens": "avoid",
   "singleAttributePerLine": true,
-  "bracketSameLine": false
+  "bracketSameLine": false,
+  "importOrder": [
+    "^react(.*)$",
+    "^(?!(assets|hooks|components|pages|styles|..?)\\/.*$).*",
+    "^@/(.*)$",
+    "^[./]",
+    "^[../]"
+  ],
+  "plugins": ["@trivago/prettier-plugin-sort-imports"]
 }

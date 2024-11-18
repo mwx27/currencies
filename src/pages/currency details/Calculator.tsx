@@ -1,7 +1,7 @@
-import { InputAdornment, TextField } from '@mui/material'
-import './styles/general.css'
 import { useState } from 'react'
+import { InputAdornment, TextField } from '@mui/material'
 import { SwitchButton } from './SwitchButton'
+import './styles/general.css'
 
 type Props = {
   targetCurrency: string
