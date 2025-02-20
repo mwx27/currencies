@@ -17,7 +17,7 @@ export const Currencies: React.FC = () => {
   return (
     <>
       <h1>Kursy walut</h1>
-
+      <a rel='noreferrer' target="_blank" href='https://github.com/mwx27/currencies/blob/main/README.md'>About this page...</a>
       <table>
         <thead>
           <tr>
