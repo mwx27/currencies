@@ -17,13 +17,14 @@ header {
 }
 
 .back-button {
-    font-size: 24px;
-    transition: ease-in-out 0.25s;
+    font-size: 32px;
+    transition: ease-in-out 0.3s;
     text-decoration: none;
     will-change: filter;
+    filter: brightness(150%);
 }
 
 .back-button:hover {
     cursor: pointer;
-    filter: brightness(200%);
+    filter: brightness(250%);
 }
