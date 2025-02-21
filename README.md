@@ -18,9 +18,9 @@
 
 ## 🛠️ Tech Stack  
 
-🔹 **Frontend:** Vite + React + TypeScript
+🔹 **Frontend:** Vite + React + TypeScript  
 🔹 **Styling:** Tailwind CSS  
-🔹 **Data Fetching:** axios + @tanstack/react-query
+🔹 **Data Fetching:** axios + @tanstack/react-query  
 🔹 **Charts:** chart.js  
 🔹 **Date picking:** mui
 
@@ -70,7 +70,7 @@ The application is **live on Vercel**:
 🔗 GitHub - profile [https://github.com/mwx27/](https://github.com/mwx27)  
 🔗 LinkedIn: [https://www.linkedin.com/in/maciej-wojda/](https://www.linkedin.com/in/maciej-wojda/)  
 
-🌟 If you like this project, consider giving it a ⭐ on GitHub! This will motivate me to keep improving it!
+👍 If you like this project, consider giving it a ⭐ on GitHub! This will motivate me to keep improving it!
 
 💼 **Open to new opportunities!**  
 📬 Feel free to reach out 
