@@ -13,6 +13,7 @@
 ✅ **Real-time exchange rate tracking** for over 30 currencies 🌍  
 ✅ **Interactive charts** with customizable date ranges 📈  
 ✅ **Two-way currency converter** (PLN ⇄ selected currency) 🔄  
+✅ **Responsive design** – adapts smoothly to desktops, tablets, and mobile devices 📱  
 
 ---
 

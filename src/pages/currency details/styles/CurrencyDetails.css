@@ -17,7 +17,7 @@ header {
 }
 
 .back-button {
-    font-size: 32px;
+    font-size: 36px;
     transition: ease-in-out 0.3s;
     text-decoration: none;
     will-change: filter;
@@ -26,5 +26,11 @@ header {
 
 .back-button:hover {
     cursor: pointer;
-    filter: brightness(250%);
+    filter: brightness(0) saturate(100%) invert(40%) sepia(90%) hue-rotate(80deg) saturate(400%) brightness(150%);
 }
+
+@media(max-width: 600px) {
+    .back-button {
+      font-size: 16px;
+    }
+  }
