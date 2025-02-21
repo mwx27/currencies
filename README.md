@@ -19,7 +19,7 @@
 ## 🛠️ Tech Stack  
 
 🔹 **Frontend:** Vite + React + TypeScript  
-🔹 **Styling:** Tailwind CSS  
+🔹 **Styling:** Pure CSS  
 🔹 **Data Fetching:** axios + @tanstack/react-query  
 🔹 **Charts:** chart.js  
 🔹 **Date picking:** mui

@@ -8,4 +8,16 @@
 
 h1 {
     text-transform: capitalize;
+    width: 100%;
+}
+
+header {
+    display: flex;
+    align-items: center;
+}
+
+.back-button {
+    height: max-content;
+    font-size: 24px;
+    text-decoration: none;
 }

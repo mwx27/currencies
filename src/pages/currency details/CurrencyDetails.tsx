@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
 import { getCurrency, getCurrencyInRange, QueryKeys } from '../../api/queries'
 import { DEFAULT_RANGE } from '../../constants'
@@ -56,7 +56,15 @@ export const CurrencyDetails: React.FC = () => {
 
   return (
     <div>
-      <h1>{currentRate?.currencyName}</h1>
+      <header>
+        <Link
+          to="/"
+          className="back-button"
+        >
+          {'🔙'}
+        </Link>
+        <h1>{currentRate?.currencyName}</h1>
+      </header>
       <h2>
         {currencyCode} {getFlagEmoji(currencyCode)}
       </h2>
