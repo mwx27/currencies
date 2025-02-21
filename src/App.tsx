@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from '@vercel/speed-insights/react'
 import './App.css'
 import { Currencies, CurrencyDetails } from './pages'
 
@@ -87,6 +88,7 @@ export const App: React.FC = () => {
           />
         </Routes>
         <Analytics />
+        <SpeedInsights />
       </QueryClientProvider>
     </ThemeProvider>
   )

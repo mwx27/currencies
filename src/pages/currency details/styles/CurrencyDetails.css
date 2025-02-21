@@ -8,4 +8,29 @@
 
 h1 {
     text-transform: capitalize;
+    width: 100%;
 }
+
+header {
+    display: flex;
+    align-items: center;
+}
+
+.back-button {
+    font-size: 36px;
+    transition: ease-in-out 0.3s;
+    text-decoration: none;
+    will-change: filter;
+    filter: brightness(150%);
+}
+
+.back-button:hover {
+    cursor: pointer;
+    filter: brightness(0) saturate(100%) invert(40%) sepia(90%) hue-rotate(80deg) saturate(400%) brightness(150%);
+}
+
+@media(max-width: 600px) {
+    .back-button {
+      font-size: 16px;
+    }
+  }

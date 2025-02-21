@@ -13,13 +13,14 @@
 ✅ **Real-time exchange rate tracking** for over 30 currencies 🌍  
 ✅ **Interactive charts** with customizable date ranges 📈  
 ✅ **Two-way currency converter** (PLN ⇄ selected currency) 🔄  
+✅ **Responsive design** – adapts smoothly to desktops, tablets, and mobile devices 📱  
 
 ---
 
 ## 🛠️ Tech Stack  
 
 🔹 **Frontend:** Vite + React + TypeScript  
-🔹 **Styling:** Tailwind CSS  
+🔹 **Styling:** Pure CSS  
 🔹 **Data Fetching:** axios + @tanstack/react-query  
 🔹 **Charts:** chart.js  
 🔹 **Date picking:** mui
